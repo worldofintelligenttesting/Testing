@@ -1,0 +1,26 @@
+Select Concat(upper('Mountain View'),' ', upper('USA')) as Result from Customers
+
+1. Attribute: 10000
+Business: 10000
+Category: 10000
+Checkin: 10000
+etite_years: 10000
+friend: 10000
+hours: 10000
+photo: 10000
+review: 10000
+tip: 10000
+user: 10000
+
+
+2. Attribute: 1115
+Business: 10000
+Category: 2643
+Checkin: 493
+etite_years: 2780
+friend: 9415 by friend_id
+hours: 1562
+photo: 10000
+review:10000
+tip: 537 by User_Id
+user: 10000

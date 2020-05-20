@@ -1,0 +1,145 @@
+select TrackId from Tracks where Milliseconds > 5000000
+Select CustomerID,FirstName,LastName,State,Company from Customers where State IN('RJ', 'DF', 'AB', 'BC', 'CA', 'WA', 'NY')
+select  Name from Tracks where Name Like ('All%')
+Select CustomerId,Email from Customers where Email Like('J%gmail.com')
+Select InvoiceId,BillingCity,Total from Invoices where BillingCity IN('Brasília','Edmonton','Vancouver') Order By InvoiceId Desc 
+
+Find the albums with 12 or more tracks.
+Select AlbumId from Albums where Title>=12 group by albumid
+
+Show the number of orders placed by each customer (hint: this is found in the invoices table) and sort the result by the number of orders in descending order.
+select customerId,invoiceid from invoices group by customerID order by invoiceid desc
+
+For Question 8: 
+
+SELECT CustomerID, COUNT (*) AS num
+
+FROM Invoices
+
+GROUP BY CustomerID
+
+Order By num DESC;
+
+The total number of orders I am getting for the 8th person on the list is 7, is that correct? 
+
+Question 9: 
+
+SELECT AlbumID, COUNT (*) AS num
+
+FROM Tracks
+
+GROUP BY AlbumID
+
+
+
+
+For question 8, you can validate the number of orders you are getting by running a separate simple query to check the number of rows returned where customerID = xx. The number of rows returned should match your order count for that customerID. 
+
+For question 9, the WHERE clause can only be used with SELECT statements, and the HAVING clause with the GROUP BY statement.
+
+0 UpvotesReply
+
+
+Elisabeth SEBBAN's Post
+
+
+
+
+Elisabeth SEBBAN
+
+
+Elisabeth SEBBAN · 2 months ago
+
+
+
+
+
+after a count, you need having instead of where
+
+0 UpvotesReply
+
+
+Iqra Qundeel's Post
+
+
+
+
+
+
+IQ
+
+
+Iqra Qundeel · 2 months ago
+
+
+
+
+
+The error in question 9 is that you should write the where clause like.. Where num >12 because the integers are not written in quotes.
+
+
+SELECT
+
+InvoiceId
+
+,COUNT(CustomerId) AS Tc
+
+/*,InvoiceDate
+
+,BillingAddress
+
+,BillingCity
+
+,BillingState
+
+,BillingCountry
+
+,BillingPostalCode
+
+,Total*/
+
+FROM Invoices
+
+GROUP BY CustomerId
+
+ORDER BY InvoiceId DESC ; 
+
+
+
+SELECT CustomerID, 
+
+count(InvoiceId) 
+
+FROM Invoices 
+
+GROUP BY CustomerID 
+
+ORDER BY count(InvoiceId) desc;
+
+
+
+
+
+
+NoorIH · 2 years ago
+
+
+
+
+
+select count(*) as NumAlbumsWith12OrmoreTracks
+
+from (
+
+select count(distinct trackId) as C, albumID from tracks
+
+group by albumId
+
+having C >=12)
+
+
+
+
+Where num > '12';
+
+
